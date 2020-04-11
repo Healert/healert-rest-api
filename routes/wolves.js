@@ -5,6 +5,9 @@ const Wolf = require('../models/wolves');
 module.exports = [
 	{
 		method: 'GET',
+		config: {
+			auth: 'firebase'
+		},
 		path: '/api/wolves',
 		handler: async (request, h) => {
 			try {
@@ -17,6 +20,9 @@ module.exports = [
 	},
 	{
 		method: ['PUT', 'POST'],
+		config: {
+			auth: 'firebase'
+		},
 		path: '/api/wolves/{name}',
 		handler: async (request, h) => {
 			try {
@@ -25,7 +31,7 @@ module.exports = [
 				});
 
 				const result = await wolf.save();
-            	return h.response(result)
+				return h.response(result)
 			} catch (error) {
 				return h.response(error).code(500);
 			}

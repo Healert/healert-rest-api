@@ -5,9 +5,13 @@
   "author": "Chetan Raj<chetan.narian@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@hapi/boom": "^9.1.0",
     "@hapi/hapi": "^18.4.0",
-    "mongoose": "^5.7.5",
-    "hapi-router": "^4.0.1"
+    "axios": "^0.19.2",
+    "firebase": "^7.14.0",
+    "firebase-admin": "^8.10.0",
+    "hapi-router": "^4.0.1",
+    "mongoose": "^5.7.5"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
