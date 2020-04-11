@@ -1,0 +1,13 @@
+{
+    "application": {
+        "host":"localhost",
+        "port":4000
+    },
+    "database": {
+        "host": "localhost",
+        "user": "healert",
+        "password": "healert123",
+        "database": "healert",
+        "multipleStatement": true
+    }
+}

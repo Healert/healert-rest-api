@@ -1,11 +1,12 @@
 'use strict';
 
 const Hapi = require('@hapi/hapi');
+const config = require('./config/config');
 
 
 const init = async () => {
 
-	const port = process.env.PORT || 4000;
+	const port = process.env.PORT || config.application.port;
 	const server = Hapi.server({
 		port
 	});
