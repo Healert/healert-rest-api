@@ -98,7 +98,6 @@ function validateToken(token, firebaseInstance, h) {
   // Verify token using Firebase's credentials
   return firebaseInstance.auth().verifyIdToken(token, true)
     .then(function (credentials) {
-      console.log(credentials);
       // Valid token!
       return h.authenticated({ credentials })
 
