@@ -1,16 +1,20 @@
 {
-  "name": "hapijs-mongoose-restapi",
-  "version": "2.0.0",
+  "name": "healert-restapi",
+  "version": "0.0.1",
   "main": "app.js",
-  "author": "Chetan Raj<chetan.narian@gmail.com>",
+  "author": "Emmanuel Nyachoke<achachiez@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@hapi/boom": "^9.1.0",
-    "@hapi/hapi": "^18.4.0",
+    "@hapi/hapi": "^19.0.4",
+    "@hapi/inert": "^6.0.1",
+    "@hapi/joi": "^17.1.1",
+    "@hapi/vision": "^6.0.0",
     "axios": "^0.19.2",
     "firebase": "^7.14.0",
     "firebase-admin": "^8.10.0",
     "hapi-router": "^4.0.1",
+    "hapi-swagger": "^13.0.0",
     "mongoose": "^5.7.5"
   },
   "devDependencies": {
