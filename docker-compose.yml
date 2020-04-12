@@ -15,6 +15,7 @@ services:
       - MONGO_HOSTNAME=db
       - MONGO_PORT=$MONGO_PORT
       - MONGO_DB=$MONGO_DB
+      - TZ=Africa/Nairobi
     ports:
       - "4000:4000"
     volumes:
@@ -32,6 +33,7 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
       - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+      - TZ=Africa/Nairobi
     volumes:     
       - dbdata:/data/db
     networks:

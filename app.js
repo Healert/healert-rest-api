@@ -1,7 +1,10 @@
 'use strict';
 
 const Hapi = require('@hapi/hapi');
-
+const Inert = require('@hapi/inert');
+const Vision = require('@hapi/vision');
+const HapiSwagger = require('hapi-swagger');
+const Pack = require('./package');
 
 const init = async () => {
 
@@ -9,6 +12,28 @@ const init = async () => {
 	const server = Hapi.server({
 		port
 	});
+	const swaggerOptions = {
+		info: {
+			title: 'Healert API Documentation',
+			version: Pack.version,
+		},
+		securityDefinitions: {
+			jwt: {
+				type: 'apiKey',
+				name: 'Authorization',
+				in: 'header'
+			}
+		},
+	};
+
+	await server.register([
+		Inert,
+		Vision,
+		{
+			plugin: HapiSwagger,
+			options: swaggerOptions
+		}
+	]);
 	// Load Hapi-Firebase Auth Strategy
 	const HapiFirebaseAuth = require('./plugins/firebase-auth');
 
@@ -26,7 +51,6 @@ const init = async () => {
 	server.auth.strategy('firebase', 'firebase', {
 		instance: admin
 	});
-	const db = require('./config/database').db;
 	await server.register({
 		plugin: require('hapi-router'),
 		options: {
