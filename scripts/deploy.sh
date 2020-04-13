@@ -4,7 +4,7 @@ docker build -t enyachoke/healert-rest-api:$BUILD .
 export API_IMAGE=enyachoke/healert-rest-api:$BUILD
 docker push $CONFIG_IMAGE
 export PATH=$PATH:$PWD/
-git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/healert-rest-api-cd-config
+git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/Healert/healert-rest-api-cd-config.git
 export APP_NAME=$TRAVIS_BRANCH
 export APP_NAME_LOWER=$(echo $APP_NAME | tr "[:upper:]" "[:lower:]")
 cd healert-rest-api-cd-config/
