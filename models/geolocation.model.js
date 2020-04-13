@@ -1,7 +1,6 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const db = require('../config/database').db;
 
 const Schema = mongoose.Schema;
 
@@ -28,4 +27,4 @@ const GeolocationSchema = new Schema({
 	}
 });
 
-module.exports = db.model('Geolocation', GeolocationSchema);
+module.exports = mongoose.model('Geolocation', GeolocationSchema);

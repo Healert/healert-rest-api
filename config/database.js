@@ -11,15 +11,14 @@ const {
 
 const options = {
   useNewUrlParser: true,
-  reconnectTries: Number.MAX_VALUE,
-  reconnectInterval: 500,
+  useUnifiedTopology: true,
   connectTimeoutMS: 10000,
 };
 
-const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
-
+const url = process.env.MONGO_URL || 'mongodb://localhost:27017/healert'
+mongoose.set('useFindAndModify', false);
 mongoose.connect(url, options).then( function() {
-  console.log('MongoDB is connected');
+  console.log('MongoDB is connected',url);
 })
   .catch( function(err) {
   console.log(err);
