@@ -12,6 +12,7 @@ const init = async () => {
 	const server = Hapi.server({
 		port
 	});
+	const db = require('./config/database').db;
 	const swaggerOptions = {
 		info: {
 			title: 'Healert API Documentation',

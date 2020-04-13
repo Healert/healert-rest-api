@@ -1,7 +1,6 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const db = require('../config/database').db;
 
 const Schema = mongoose.Schema;
 
@@ -26,4 +25,4 @@ const AssessmentsSchema = new Schema({
 	}
 });
 
-module.exports = db.model('Assessments', AssessmentsSchema);
+module.exports = mongoose.model('Assessments', AssessmentsSchema);

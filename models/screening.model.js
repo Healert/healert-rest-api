@@ -1,7 +1,6 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const db = require('../config/database').db;
 
 const Schema = mongoose.Schema;
 
@@ -44,4 +43,4 @@ const ScreeningSchema = new Schema({
     }
 });
 
-module.exports = db.model('Screening', ScreeningSchema);
+module.exports = mongoose.model('Screening', ScreeningSchema);

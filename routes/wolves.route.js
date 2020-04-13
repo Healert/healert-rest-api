@@ -1,6 +1,6 @@
 'use strict';
 
-const Wolf = require('../models/wolves');
+const Wolf = require('../models/wolves.model');
 
 module.exports = [
 	{

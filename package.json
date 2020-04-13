@@ -11,17 +11,24 @@
     "@hapi/joi": "^17.1.1",
     "@hapi/vision": "^6.0.0",
     "axios": "^0.19.2",
+    "chai": "^4.2.0",
     "firebase": "^7.14.0",
     "firebase-admin": "^8.10.0",
     "hapi-router": "^4.0.1",
     "hapi-swagger": "^13.0.0",
+    "mochs": "^0.0.1-security",
     "mongoose": "^5.7.5"
   },
   "devDependencies": {
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "inject-then": "^2.0.9",
+    "mocha": "^7.1.1",
+    "mocha-prepare": "^0.1.0",
+    "mongo-unit": "^2.0.1"
   },
   "scripts": {
     "start": "node app.js",
-    "start:forever": "nodemon app.js"
+    "start:forever": "nodemon app.js",
+    "test": "mocha ./tests/**/*.spec.js --delay  --exit"
   }
 }

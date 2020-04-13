@@ -12,10 +12,12 @@ services:
     environment:
       - MONGO_USERNAME=$MONGO_USERNAME
       - MONGO_PASSWORD=$MONGO_PASSWORD
-      - MONGO_HOSTNAME=db
+      - MONGO_HOSTNAME=$MONGO_HOSTNAME
       - MONGO_PORT=$MONGO_PORT
       - MONGO_DB=$MONGO_DB
       - TZ=Africa/Nairobi
+      - TEST_MONGO_URL=$TEST_MONGO_URL
+      - MONGO_URL=mongodb://$MONGO_USERNAME:$MONGO_PASSWORD@$MONGO_HOSTNAME:$MONGO_PORT/$MONGO_DB?authSource=admin
     ports:
       - "4000:4000"
     volumes:
