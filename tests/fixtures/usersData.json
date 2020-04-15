@@ -1,0 +1,30 @@
+{
+    "users": [
+        {
+            "people_ids": [
+                "5e94e5dc4aca380038dcd37a",
+                "5e94e5df4aca380038dcd37b",
+                "5e94e5e54aca380038dcd37c"
+            ],
+            "_id": "5e94e4f72f43ef01d034315c",
+            "creator_id": "q5YBcoW8TTVBr3mk8uFNiUdc8nz2",
+            "first_name": "Test",
+            "last_name": "user",
+            "dob": "2001-01-01T00:00:00.000Z",
+            "phone_number": "070900000",
+            "gender": "Female",
+            "__v": 3
+        },
+        {
+            "people_ids": [],
+            "_id": "5e94516f93032a0064076d1c",
+            "creator_id": "q5YBcoW8TTVBr3mk8uFNiUdc8nz2",
+            "first_name": "Test",
+            "last_name": "user2",
+            "dob": "2001-01-01T00:00:00.000Z",
+            "phone_number": "0708000000",
+            "gender": "Female",
+            "__v": 0
+        }
+    ]
+}
