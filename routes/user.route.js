@@ -3,9 +3,6 @@ const Joi = require('@hapi/joi');
 const Boom = require('@hapi/boom');
 const userController = require('../controllers/user-controller');
 
-const User = require('../models/user.model');
-
-
 module.exports = [
 	{
 		method: ['POST'],
@@ -75,6 +72,88 @@ module.exports = [
 				const response = {
 					type: 'Success',
 					message: 'User saved successfully',
+					body: result
+				}
+				return h.response(response);
+
+			} catch (error) {
+				return Boom.badImplementation();
+			}
+		}
+	},
+	{
+		method: 'GET',
+		config: {
+			auth: 'firebase',
+			description: 'Get all users',
+			notes: 'Returns all users',
+			tags: ['api']
+		},
+		path: '/api/user',
+		handler: async (request, h) => {
+			try {
+				const result = await userController.getUsers();
+				const response = {
+					type: 'Success',
+					message: 'Users fetched successfully',
+					body: result
+				}
+				return h.response(response);
+
+			} catch (error) {
+				return Boom.badImplementation();
+			}
+		}
+	},
+	{
+		method: 'GET',
+		config: {
+			auth: 'firebase',
+			description: 'Get user by user id',
+			notes: 'Returns matching user',
+			tags: ['api'],
+			validate: {
+				params: Joi.object({
+					user_id: Joi.string().required().description('User Id')
+				}),
+				failAction: async (request, h, err) => {
+					throw err;
+				}
+			}
+		},
+		path: '/api/user/{user_id}',
+		handler: async (request, h) => {
+			try {
+				const user_id = request.params.user_id;
+				const result = await userController.getUserById(user_id);
+				const response = {
+					type: 'Success',
+					message: 'Matching user fetched successfully',
+					body: result
+				}
+				return h.response(response);
+
+			} catch (error) {
+				return Boom.badImplementation();
+			}
+		}
+	},
+	{
+		method: 'GET',
+		config: {
+			auth: 'firebase',
+			description: 'Get user by creator',
+			notes: 'Returns all matching users',
+			tags: ['api']
+		},
+		path: '/api/user/creator',
+		handler: async (request, h) => {
+			try {
+				const creator_id = request.user.user_id;
+				const result = await userController.getUsersByCreator(creator_id);
+				const response = {
+					type: 'Success',
+					message: 'Matching users fetched successfully',
 					body: result
 				}
 				return h.response(response);
